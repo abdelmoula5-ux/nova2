@@ -1,0 +1,7 @@
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#0b0f1a;color:white;line-height:1.6}
+.navbar{display:flex;justify-content:space-between;align-items:center;padding:18px 50px;background:rgba(0,0,0,.5)}
+.navbar nav a{margin:0 10px;color:white;text-decoration:none}
+.contact-form{display:flex;flex-direction:column;gap:10px;max-width:400px;margin:auto}
+.contact-form input,.contact-form textarea{padding:10px;border-radius:8px;border:none}
+.btn{padding:10px;background:#00c2ff;color:black;border:none;border-radius:6px;cursor:pointer;margin-top:5px}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dashboard Admin</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo">Nova<span>Tech</span></div>
+  <nav>
+    <a href="index.html">Site</a>
+    <a href="#" onclick="logout()">Déconnexion</a>
+  </nav>
+</header>
+
+<section class="section">
+  <h2>Dashboard Admin</h2>
+  <div id="messagesContainer"></div>
+</section>
+
+<script>
+if(localStorage.getItem("loggedIn")!=="true"){
+  window.location.href="login.html";
+}
+function logout(){
+  localStorage.removeItem("loggedIn");
+  window.location.href="login.html";
+}
+
+async function loadMessages(){
+  const res = await fetch("/messages.json");
+  const data = await res.json();
+  let container=document.getElementById("messagesContainer");
+  container.innerHTML="";
+  data.forEach((m,i)=>{
+    let div=document.createElement("div");
+    div.className="card";
+    div.innerHTML=`<h3>${i+1}. ${m.name} (${m.email})</h3><p>${m.message}</p>`;
+    container.appendChild(div);
+  });
+}
+loadMessages();
+</script>
+
+</body>
+</html>
